@@ -40,12 +40,12 @@ Step 3: in R command window, run the following command to see the help document 
 ```
 
 At the end of the help page, there is an example code. Copy these codes to command to run as follows:  
-Step 4: load demo data containing gene-level expression, isoform-level expression and the corresponding cell label. The cells in the demo data come from 8 different types.
+Step 4: load demo data containing gene-level expression, isoform-level expression and the corresponding cell label. The cells in the demo data come from 3 different types.
 ```
 > data(demo)
-> # gene_expr (5374*263): a expression data matrix, genes in rows and samples in columns
-> # isoform_expr (11970*263): a expression data matrix, isoforms in rows and samples in columns
-> # label (1*263): corresponding cell label
+> # gene_expr (4233*23): a expression data matrix, genes in rows and samples in columns
+> # isoform_expr (9247*23): a expression data matrix, isoforms in rows and samples in columns
+> # label (1*23): corresponding cell label
 ```
 
 Step 5: Running IsoCell function  
@@ -68,16 +68,37 @@ Run code:
 ```
 
 ## 4. Performance evaluation
-Clustering test (An example with SIMLR is as follows):
+Step 1: Clustering test (An example with SIMLR is as follows):
 ```
 > library(SIMLR)
 > # clustering data with only gene-level expression
-> example1 = SIMLR(gene_expr,8)
+> example1 = SIMLR(gene_expr,3)
 > cluster1 = example1$y$cluster
 > 
 > # clustering data with combined data
-> example2 = SIMLR(result$combined_data,8)
+> example2 = SIMLR(result$combined_data,3)
 > cluster2 = example2$y$cluster
+```
+Step 7: Evaluate clustering performance
+Parameters:
+```
+> # truelabel: A numeric vector of true labels of each sample.
+> # prelabel: A numeric vector of predicted labels of each sample.
+```
+Return:
+```
+> # NMI: Value of normalized mutual information.
+> # ARI: Value of adjusted rand index.
+```
+Run code:
+```
+> evaluate(truelabel = label, prelabel = cluster1)
+> NMI      ARI 
+> 0.64205  0.55840
+>
+> evaluate(truelabel = label, prelabel = cluster2)
+> NMI       ARI 
+>  0.70150  0.65040
 ```
 
 ## 5. Contact
