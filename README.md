@@ -79,7 +79,7 @@ Step 1: Clustering test (An example with SIMLR is as follows):
 > example2 = SIMLR(result$combined_data,3)
 > cluster2 = example2$y$cluster
 ```
-Step 2: Evaluate clustering performance
+Step 2: Evaluate clustering performance [evaluate.R](https://github.com/genemine/IsoCell/blob/main/code/evaluate.R)
 
 Parameters:
 ```
