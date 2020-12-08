@@ -98,8 +98,8 @@ Run code:
 > 0.64205  0.55840
 >
 > evaluate(truelabel = label, prelabel = cluster2)
-> NMI       ARI 
->  0.70150  0.65040
+> NMI      ARI 
+> 0.70150  0.65040
 ```
 
 ## 5. Contact
