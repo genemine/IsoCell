@@ -79,7 +79,8 @@ Step 1: Clustering test (An example with SIMLR is as follows):
 > example2 = SIMLR(result$combined_data,3)
 > cluster2 = example2$y$cluster
 ```
-Step 7: Evaluate clustering performance
+Step 2: Evaluate clustering performance
+
 Parameters:
 ```
 > # truelabel: A numeric vector of true labels of each sample.
