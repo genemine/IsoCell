@@ -13,8 +13,10 @@ IsoCell is implemented as an R package, which is freely available for non-commer
 ## 2. Install
 Step 1: Download the above IsoCell package and install it in R (tested on version 3.6.1)
 ```
-> install.packages("F:/IsoCell/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")
+> install.packages("path/to/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")
 ```
+The "path/to/IsoCell_0.1.0.tar.gz" here needs to be replaced with the address stored when "IsoCell_0.1.0.tar.gz" was downloaded.
+For example, download "IsoCell_0.1.0.tar.gz" to "F:/isocell". Then replace "path/to/IsoCell_0.1.0.tar.gz" with "F:/IsoCell/IsoCell_0.1.0.tar.gz" . That is, install.packages("F:/IsoCell/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")
 
 Step 2: Install the dependent packages: MASS.
 ```
