@@ -4,21 +4,21 @@ An approach to enhance single cell clustering by integrating isoform-level expre
 ### 1.1 Description
 IsoCell is an approach to enhance single cell clustering by integrating isoform-level expression through orthogonal projection. First, the orthogonal projection matrix of genes was constructed. And then some isoforms were selected and projected orthogonally to genes to integrate with genes. Based on fifteen real world scRNA-seq datasets. It was found that the integration of alternative splicing information led to better clustering performances in most datasets, compared with using only gene-level expression data.
 
-### 1.2 Download
+## 2. Download and Install
 IsoCell is implemented as an R package, which is freely available for non-commercial use.
+
+Step 1: 
+a. you can download the IsoCell package and install it in R (tested on version 3.6.1)
 
 [IsoCell_0.1.0.tar.gz](https://github.com/genemine/IsoCell/blob/master/IsoCell_0.1.0.tar.gz)
 
-
-## 2. Install
-Step 1: Download the above IsoCell package and install it in R (tested on version 3.6.1)
 ```
 > install.packages("path/to/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")
 ```
 The "path/to/IsoCell_0.1.0.tar.gz" here needs to be replaced with the address stored when "IsoCell_0.1.0.tar.gz" was downloaded.
 For example, download "IsoCell_0.1.0.tar.gz" to "F:/isocell". Then replace "path/to/IsoCell_0.1.0.tar.gz" with "F:/IsoCell/IsoCell_0.1.0.tar.gz". That is, ```install.packages("F:/IsoCell/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")```
 
-or you can download from github directly:
+b. or you can download from github directly:
 ```
 > install.packages("devtools")
 > 
