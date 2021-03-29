@@ -23,7 +23,7 @@ or you can download from github directly:
 > install.packages("devtools")
 > 
 > library(devtools)
-> devtools::install_github(“YiqunLiHIT/SCIA”)
+> devtools::install_github("genemine/IsoCell")
 ```
 
 
