@@ -4,23 +4,27 @@
 \alias{IsoCell}
 \title{Isocell}
 \usage{
-IsoCell(gene_expr, isoform_expr, t = 0.1)
+IsoCell(gene_expr, isoform_expr, t = 0.1, theta = 0.9, s = FALSE)
 }
 \arguments{
 \item{gene_expr}{A gene-level expression data matrix, genes in rows and samples in columns.}
 
 \item{isoform_expr}{An isoform-level expression data matrix, isoforms in rows and samples in columns.}
 
-\item{t}{The retention ratio of isoforms, isoforms whose residual vector length is ranked in the top t percent are retained.}
+\item{t}{The retention ratio of isoforms, isoforms whose residual vector length is ranked in the top t percent are retained. The default is 0.1.}
+
+\item{theta}{The threshold of the cumulative variance contribution rate of the principal components: keep the principal components whose cumulative variance contribution rate is greater than \code{theta}. The default is 0.9.}
+
+\item{s}{An optional parameter that can be used to control the number of principal components retained, instead of \code{theta}. Note that when the parameter \code{s} is selected, the parameter \code{theta} will no longer work. (If \code{s} is selected, then \code{s} must be an integer and less than min(dim(gene_expr)).) The default is FASLE.}
 }
 \value{
-P: The orthogonal projection matrix of genes.
+\code{P}: The orthogonal projection matrix of genes.
 
-len_residual_vector: The length of the residual vector for each normalized isoform vector.
+\code{len_residual_vector}: The length of the residual vector for each normalized isoform vector.
 
-selisoform: The isoforms IsoCell select for the final combining.
+\code{selisoform}: The isoforms IsoCell select for the final combining.
 
-combined_data: The final combined data for clustering.
+\code{combined_data}: The final combined data for clustering.
 }
 \description{
 intergrating isoform-level expression through orthogonal projection
