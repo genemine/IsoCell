@@ -4,34 +4,14 @@ An approach to enhance single cell clustering by integrating isoform-level expre
 ### 1.1 Description
 IsoCell is an approach to enhance single cell clustering by integrating isoform-level expression through orthogonal projection. First, the orthogonal projection matrix of genes was constructed. And then some isoforms were selected and projected orthogonally to genes to integrate with genes. Based on fifteen real world scRNA-seq datasets. It was found that the integration of alternative splicing information led to better clustering performances in most datasets, compared with using only gene-level expression data.
 
-## 2. Download and Install
-IsoCell is implemented as an R package, which is freely available for non-commercial use.
-
-Step 1: 
-a. you can download the IsoCell package and install it in R (tested on version 3.6.1)
-
-[IsoCell_0.1.0.tar.gz](https://github.com/genemine/IsoCell/blob/master/IsoCell_0.1.0.tar.gz)
-
-```
-> install.packages("path/to/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")
-```
-The "path/to/IsoCell_0.1.0.tar.gz" here needs to be replaced with the address stored when "IsoCell_0.1.0.tar.gz" was downloaded.
-For example, download "IsoCell_0.1.0.tar.gz" to "F:/isocell". Then replace "path/to/IsoCell_0.1.0.tar.gz" with "F:/IsoCell/IsoCell_0.1.0.tar.gz". That is, ```install.packages("F:/IsoCell/IsoCell_0.1.0.tar.gz", repos = NULL, type = "source")```
-
-b. or you can download from github directly:
+## 2. Download & Install
+IsoCell is implemented as an R package, which is freely available for non-commercial use. You can download from github directly:
 ```
 > install.packages("devtools")
 > 
 > library(devtools)
 > devtools::install_github("genemine/IsoCell")
 ```
-
-
-Step 2: Install the dependent packages: MASS.
-```
-> install.packages("MASS")
-```
-
 
 ## 3. Usage
 Notes: IsoCell was was tested on linux and Windows.
@@ -54,9 +34,9 @@ At the end of the help page, there is an example code. Copy these codes to comma
 Step 4: load demo data containing gene-level expression, isoform-level expression and the corresponding cell label. The cells in the demo data come from 3 different types.
 ```
 > data(demo)
-> # gene_expr (4233*23): a expression data matrix, genes in rows and samples in columns
-> # isoform_expr (9247*23): a expression data matrix, isoforms in rows and samples in columns
-> # label (1*23): corresponding cell label
+> # gene_expr (323*16): a expression data matrix, genes in rows and samples in columns
+> # isoform_expr (2316*16): a expression data matrix, isoforms in rows and samples in columns
+> # label (1*16): corresponding cell label
 ```
 
 Step 5: Running IsoCell function  
@@ -65,6 +45,8 @@ Parameters:
 > # gene_expr:  A gene-level expression data matrix, genes in rows and samples in columns.
 > # isoform_expr:  An isoform-level expression data matrix, isoforms in rows and samples in columns.
 > # t (default: 0.1): The retention ratio of isoforms, isoforms whose residual vector length is ranked in the top t percent are retained.
+> # theta (default: 0.9): The threshold of the cumulative variance contribution rate of the principal components: keep the principal components whose cumulative variance contribution rate is greater than theta.
+> # s (default: FALSE): An optional parameter that can be used to control the number of principal components retained, instead of theta. Note that when the parameter s is selected, the parameter theta will no longer work. (If s is selected, then s must be an integer and less than min(dim(gene_expr))).
 ```
 Return:
 ```
@@ -83,11 +65,11 @@ Step 1: Clustering test (An example with SIMLR is as follows):
 ```
 > library(SIMLR)
 > # clustering data with only gene-level expression
-> example1 = SIMLR(gene_expr,3)
+> example1 = SIMLR(gene_expr,4)
 > cluster1 = example1$y$cluster
 > 
 > # clustering data with combined data
-> example2 = SIMLR(result$combined_data,3)
+> example2 = SIMLR(result$combined_data,4)
 > cluster2 = example2$y$cluster
 ```
 Step 2: Evaluate clustering performance [evaluate.R](https://github.com/genemine/IsoCell/blob/main/code/evaluate.R)
@@ -106,11 +88,11 @@ Run code:
 ```
 > evaluate(truelabel = label, prelabel = cluster1)
 > NMI      ARI 
-> 0.64205  0.55840
+> 0.55209  0.31373
 >
 > evaluate(truelabel = label, prelabel = cluster2)
 > NMI      ARI 
-> 0.70150  0.65040
+> 0.58609  0.37500
 ```
 
 ## 5. Contact
