@@ -86,11 +86,11 @@ Return:
 ```
 Run code:
 ```
-> evaluate(truelabel = label, prelabel = cluster1)
+> evaluate(truelabel = label[,1], prelabel = cluster1)
 > NMI      ARI 
 > 0.55209  0.31373
 >
-> evaluate(truelabel = label, prelabel = cluster2)
+> evaluate(truelabel = label[,1], prelabel = cluster2)
 > NMI      ARI 
 > 0.58609  0.37500
 ```
