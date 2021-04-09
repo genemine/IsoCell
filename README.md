@@ -98,7 +98,7 @@ Run code:
 ## 5. Contact
 If any questions, please do not hesitate to contact us at: 
 
-Hongdong Li, hongdong@csu.edu.cn
+Yingyi Liu, liuyingyi@csu.edu.cn
 
 Jianxin Wang, jxwang@csu.edu.cn
 
