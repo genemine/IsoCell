@@ -100,8 +100,6 @@ If any questions, please do not hesitate to contact us at:
 
 Yingyi Liu, liuyingyi@csu.edu.cn
 
-Jianxin Wang, jxwang@csu.edu.cn
-
 
 ## 6. How to cite?
 If you use this tool, please cite the following work.
