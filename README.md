@@ -5,7 +5,7 @@ An approach to enhance single cell clustering by integrating isoform-level expre
 IsoCell is an approach to enhance single cell clustering by integrating isoform-level expression through orthogonal projection. First, the orthogonal projection matrix of genes was constructed. And then some isoforms were selected and projected orthogonally to genes to integrate with genes. Based on fifteen real world scRNA-seq datasets. It was found that the integration of alternative splicing information led to better clustering performances in most datasets, compared with using only gene-level expression data.
 
 ## 2. Download & Install
-IsoCell is implemented as an R package, which is freely available for non-commercial use. You can download from github directly:
+IsoCell is implemented as an R package, which is freely available for non-commercial use. You can download from github directly: (tested on version 3.6.3)
 ```
 > install.packages("devtools")
 > 
