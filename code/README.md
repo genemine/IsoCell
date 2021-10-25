@@ -1,6 +1,7 @@
 # Analysis
 After getting the results of IsoCell (result = IsoCell(gene_expr,isoform_expr)), relevant evaluation and analysis can be performed on the results.
 
+
 ## 1. Fold Change
 Based on the known cell labels of each dataset, we calculated the fold change (FC) value of expression between every pair of cell types. The calculation of fold change requires gene/isoform expression data (path/to/expression), each row is gene/isoform, each column is a cell sample, the true label of the dataset (path/to/label) and the number of cell clusters in the dataset (clusters).
 [fc.py](https://github.com/genemine/IsoCell/blob/main/code/fc.py)
@@ -9,7 +10,7 @@ Based on the known cell labels of each dataset, we calculated the fold change (F
 
  eg:python fc.py E:/isocell/gene.csv E:/isocell/labels.csv 4
 ```
-(seliso)
+
 
 ## 2. p-value
 To statistically tested whether gene/isoform is differentially expressed between cell types, the Mann Whitney U test is used for statistical testing and the p-value is obtained. The calculation of fold change also requires gene/isoform expression data (path/to/expression), each row is gene/isoform, each column is a cell sample, the true label of the dataset (path/to/label) and the number of cell clusters in the dataset (clusters).
@@ -19,7 +20,6 @@ To statistically tested whether gene/isoform is differentially expressed between
 
  eg:python pvalue.py E:/isocell/gene.csv E:/isocell/labels.csv 4
 ```
-(fdr)
 
 
 ## 3. Performance comparison between different isoform retention rate 
@@ -51,6 +51,7 @@ Step 4: Evaluate clustering performance [evaluate.R](https://github.com/genemine
 > NMI      ARI 
 > 0.58609  0.37500
 ```
+
 
 ## 4. Performance comparison between using the residual matrix and the original expression of the selected 10% isoforms
 Step 1: Run IsoCell
@@ -90,6 +91,7 @@ Step 4: Evaluate clustering performance [evaluate.R](https://github.com/genemine
 > NMI      ARI 
 > 0.58609  0.37500
 ```
+
 
 ## 5. Performance comparison between using the combined data and gene data
 Step 1: Run IsoCell
