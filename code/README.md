@@ -41,7 +41,7 @@ Step 2: Clustering test (An example with SIMLR is as follows):
 > example2 = SIMLR(result_0.7$combined_data,4)
 > cluster2 = example2$y$cluster
 ```
-Step 4: Evaluate clustering performance [evaluate.R](https://github.com/genemine/IsoCell/blob/main/code/evaluate.R)
+Step 3: Evaluate clustering performance [evaluate.R](https://github.com/genemine/IsoCell/blob/main/code/evaluate.R)
 ```
 > evaluate(truelabel = label[,1], prelabel = cluster1)
 > NMI      ARI 
